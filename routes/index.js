@@ -6,3 +6,5 @@ router.get("/", (req, res) => res.send("This is root!!!"))
 
 router.post("/registrations", controllers.postTailgateRegistration)
 router.get("/registrations", controllers.getTailgateRegistrations)
+
+module.exports = router
