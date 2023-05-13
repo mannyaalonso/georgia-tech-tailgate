@@ -1,8 +1,8 @@
 import Form from "../components/Form"
+import Hero from "../components/Hero"
 import { useState } from "react"
 
 const Registration = () => {
-
   const initialState = {
     first_name: "",
     last_name: "",
@@ -19,7 +19,7 @@ const Registration = () => {
     type_of_grill: "",
     size_of_tent: "",
     type_of_av: "",
-    terms: null
+    terms: null,
   }
 
   const [formState, setFormState] = useState(initialState)
@@ -123,7 +123,7 @@ const Registration = () => {
   ]
 
   const onChange = (e) => {
-    setFormState({...formState, [e.target.id]: e.target.value})
+    setFormState({ ...formState, [e.target.id]: e.target.value })
   }
 
   // resources: [{ type: String }],
@@ -133,15 +133,13 @@ const Registration = () => {
   // terms: { type: Boolean },
   return (
     <>
+      <Hero />
       <Form
         name={"Personal Information"}
         data={personalInfo}
         onChange={onChange}
       />
-      <Form 
-        name={"Group Information"} 
-        data={groupInfo} 
-        onChange={onChange} />
+      <Form name={"Group Information"} data={groupInfo} onChange={onChange} />
       <Form
         name={"Reunion Information"}
         data={reunionInfo}
