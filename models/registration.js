@@ -17,7 +17,7 @@ const RegistrationSchema = new Schema(
     type_of_grill: { type: String },
     size_of_tent: { type: String },
     type_of_av: { type: String },
-    location: { type: String, required: true },
+    location: { type: String },
     terms: { type: String, required: true },
     auth: { type: String, required: true },
   },

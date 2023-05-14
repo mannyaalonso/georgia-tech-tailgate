@@ -1,10 +1,15 @@
 import ReCAPTCHA from "react-google-recaptcha"
+import { useNavigate } from "react-router-dom"
+import { useState, useEffect } from "react"
+import Intro from "../components/Intro"
 import Form from "../components/Form"
 import Hero from "../components/Hero"
-import Intro from "../components/Intro"
-import { useState } from "react"
+import axios from "axios"
 
 const Registration = () => {
+
+  const naviagte = useNavigate()
+
   const initialState = {
     first_name: "",
     last_name: "",
@@ -41,8 +46,14 @@ const Registration = () => {
     setFormState({ ...formState, auth: false })
   }
 
-  const handleClick = () => {
+  const handleClick = async () => {
     if (readyToSubmit) {
+      try {
+        await axios.post('http://localhost:3001/api/registrations', formState)
+        naviagte('/result')
+      } catch (e) {
+        naviagte("/result")
+      }
     } else {
     }
   }
