@@ -1,6 +1,7 @@
 import ReCAPTCHA from "react-google-recaptcha"
 import Form from "../components/Form"
 import Hero from "../components/Hero"
+import Intro from "../components/Intro"
 import { useState } from "react"
 
 const Registration = () => {
@@ -9,19 +10,19 @@ const Registration = () => {
     last_name: "",
     phone: "",
     email: "",
-    name: "",
-    group_size: 0,
+    tailgate_name: "",
+    group_size: "",
     date: "",
     group_sponsorship: "",
     department: "",
-    reunion_tent: null,
+    reunion_tent: "",
     reunion_tent_description: "",
     resources: "",
     type_of_grill: "",
     size_of_tent: "",
     type_of_av: "",
     location: "",
-    terms: null,
+    terms: "",
     auth: false
   }
 
@@ -103,7 +104,7 @@ const Registration = () => {
       name: "Tailgate Name",
       placeholder: "Tailgate Name",
       type: "text",
-      id: "name",
+      id: "tailgate_name",
       required: false,
       value: formState.name,
     },
@@ -230,6 +231,7 @@ const Registration = () => {
   return (
     <div className="">
       <Hero />
+      <Intro />
       <Form
         name={"Personal Information"}
         data={personalInfo}

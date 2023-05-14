@@ -6,7 +6,7 @@ const RegistrationSchema = new Schema(
     last_name: { type: String, required: true },
     phone: { type: String, required: true },
     email: { type: String, required: true },
-    name: { type: String },
+    tailgate_name: { type: String },
     group_size: { type: String, required: true },
     date: { type: String, required: true },
     group_sponsorship: { type: String },

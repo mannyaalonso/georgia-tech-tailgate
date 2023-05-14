@@ -8,8 +8,12 @@ const Form = ({ name, data, onChange }) => {
         <div className="grid grid-cols-1 gap-x-16 gap-y-8 lg:grid-cols-5">
           <div className="lg:col-span-2 lg:py-12">
             <div className="mt-8">
-              <h2 className="text-3xl font-neusa_bold text-[#003057]">{name.toUpperCase()}</h2>
-              <p className="mt-2 font-neusa_regular">{"Please fill required fields".toUpperCase()}</p>
+              <h2 className="text-3xl font-neusa_bold text-[#003057]">
+                {name.toUpperCase()}
+              </h2>
+              <p className="mt-2 font-neusa_regular">
+                {"Please fill required fields".toUpperCase()}
+              </p>
             </div>
           </div>
 
