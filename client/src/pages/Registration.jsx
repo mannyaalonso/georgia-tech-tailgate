@@ -30,7 +30,7 @@ const Registration = () => {
       placeholder: "First Name",
       type: "text",
       id: "first_name",
-      required: "true",
+      required: true,
       value: formState.first_name,
     },
     {
@@ -38,7 +38,7 @@ const Registration = () => {
       placeholder: "Last Name",
       type: "text",
       id: "last_name",
-      required: "true",
+      required: true,
       value: formState.last_name,
     },
     {
@@ -46,7 +46,7 @@ const Registration = () => {
       placeholder: "Phone",
       type: "number",
       id: "phone",
-      required: "true",
+      required: true,
       value: formState.phone,
     },
     {
@@ -54,7 +54,7 @@ const Registration = () => {
       placeholder: "Email",
       type: "email",
       id: "email",
-      required: "true",
+      required: true,
       value: formState.email,
     },
   ]
@@ -131,6 +131,7 @@ const Registration = () => {
   // size_of_tent: { type: String },
   // type_of_av: { type: String },
   // terms: { type: Boolean },
+  
   return (
     <>
       <Hero />
@@ -139,7 +140,11 @@ const Registration = () => {
         data={personalInfo}
         onChange={onChange}
       />
-      <Form name={"Group Information"} data={groupInfo} onChange={onChange} />
+      <Form 
+        name={"Group Information"} 
+        data={groupInfo} 
+        onChange={onChange} 
+      />
       <Form
         name={"Reunion Information"}
         data={reunionInfo}
