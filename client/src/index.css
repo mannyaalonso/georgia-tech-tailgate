@@ -12,3 +12,7 @@
   font-family: "Neusa-Bold";
   src: url("./assets/fonts/NeusaNextPro-CompactMedium.otf");
 }
+
+input[type='radio'] {
+    accent-color: #003057;
+}

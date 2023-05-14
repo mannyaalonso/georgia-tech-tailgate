@@ -17,12 +17,14 @@ const Form = ({ name, data, onChange }) => {
             <div className="space-y-4">
               {data.map((item) => (
                 <FormField
+                  key={item.name}
                   name={item.name}
                   placeholder={item.placeholder}
                   type={item.type}
                   id={item.id}
                   required={item.required}
                   value={item.value}
+                  options={item.options}
                   onChange={onChange}
                 />
               ))}

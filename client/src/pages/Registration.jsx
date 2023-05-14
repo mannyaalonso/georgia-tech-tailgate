@@ -15,14 +15,44 @@ const Registration = () => {
     department: "",
     reunion_tent: null,
     reunion_tent_description: "",
-    resources: [""],
+    resources: "",
     type_of_grill: "",
     size_of_tent: "",
     type_of_av: "",
+    location: "",
     terms: null,
   }
 
   const [formState, setFormState] = useState(initialState)
+  let readyToSubmit = false
+
+  const onChange = (e) => {
+    setFormState({ ...formState, [e.target.name]: e.target.value })
+  }
+
+  const handleClick = () => {
+    if (readyToSubmit) {
+
+    } else {
+      
+    }
+  }
+
+  if (
+    formState.first_name &&
+    formState.last_name &&
+    formState.phone &&
+    formState.email &&
+    formState.group_size &&
+    formState.date &&
+    formState.reunion_tent &&
+    formState.resources &&
+    formState.terms
+  ) {
+    readyToSubmit = true
+  } else {
+    readyToSubmit = false
+  }
 
   const personalInfo = [
     {
@@ -65,7 +95,7 @@ const Registration = () => {
       placeholder: "Tailgate Name",
       type: "text",
       id: "name",
-      required: "true",
+      required: false,
       value: formState.name,
     },
     {
@@ -73,7 +103,7 @@ const Registration = () => {
       placeholder: "Group Size",
       type: "number",
       id: "group_size",
-      required: "true",
+      required: true,
       value: formState.group_size,
     },
     {
@@ -81,16 +111,25 @@ const Registration = () => {
       placeholder: "Tailgate Date",
       type: "date",
       id: "date",
-      required: "true",
+      required: true,
       value: formState.date,
     },
     {
       name: "Group Sponsorship / Relationship to University",
       placeholder: "Group Sponsorship / Relationship to University",
-      type: "text",
+      type: "radio",
       id: "group_sponsorship",
-      required: "true",
+      required: false,
       value: formState.group_sponsorship,
+      options: [
+        "Official University Department",
+        "Official University Organization",
+        "Official University Student Organization",
+        "Parents of Georgia Tech Students",
+        "Georgia Tech Alumni",
+        "Visitors / Guests of Georgia Tech",
+        "None",
+      ],
     },
     {
       name: "If You Are Registering a Department / Organization, Please Specify",
@@ -98,7 +137,7 @@ const Registration = () => {
         "If You Are Registering a Department / Organization, Please Specify",
       type: "text",
       id: "department",
-      required: "true",
+      required: false,
       value: formState.department,
     },
   ]
@@ -107,44 +146,90 @@ const Registration = () => {
     {
       name: "Are You Hosting a Reunion Tent?",
       placeholder: "Are you bringing a tent?",
-      type: "text",
+      type: "radio",
       id: "reunion_tent",
-      required: "true",
+      required: true,
       value: formState.reunion_tent,
+      options: ["Yes", "No"],
     },
     {
       name: "If Yes, Please Describe the Type of Reunion:",
       placeholder: "If Yes, Please Describe the Type of Reunion:",
       type: "text-area",
       id: "reunion_tent_description",
-      required: "true",
+      required: false,
       value: formState.reunion_tent_description,
     },
   ]
 
-  const onChange = (e) => {
-    setFormState({ ...formState, [e.target.id]: e.target.value })
-  }
+  const resourceInfo = [
+    {
+      name: "Will You Bring Any of the Following: Grill, Power, Sound, A/V Equipment",
+      placeholder:
+        "Will You Bring Any of the Following: Grill, Power, Sound, A/V Equipment",
+      type: "radio",
+      id: "resources",
+      required: true,
+      value: formState.resources,
+      options: ["Yes", "No"],
+    },
+    {
+      name: "Type of Grill",
+      placeholder: "Type of Grill",
+      type: "radio",
+      id: "type_of_grill",
+      required: false,
+      value: formState.type_of_grill,
+      options: ["Gas", "Carbon", "Electric"],
+    },
+    {
+      name: "Size of Tent",
+      placeholder: "Size of Tent",
+      type: "text",
+      id: "size_of_tent",
+      required: false,
+      value: formState.size_of_tent,
+    },
+    {
+      name: "Type of Music / AV Equipment",
+      placeholder: "Type of Music / AV Equipment",
+      type: "text",
+      id: "type_of_av",
+      required: false,
+      value: formState.type_of_av,
+    },
+    {
+      name: "Do You Have a Preferred Location on The Quad?",
+      placeholder: "Do You Have a Preferred Location on The Quad?",
+      type: "text",
+      id: "location",
+      required: false,
+      value: formState.location,
+    },
+    {
+      name: "I have completely read and agree to comply with the policies and procedures outlined in",
+      placeholder: `I have completely read and agree to comply with the policies and procedures outlined in ${(
+        <a href="https://wmt.digital/terms" target="_blank" rel="noreferrer">
+          Terms and Conditions
+        </a>
+      )}`,
+      type: "radio",
+      id: "terms",
+      required: true,
+      value: formState.terms,
+      options: ["I Agree"],
+    },
+  ]
 
-  // resources: [{ type: String }],
-  // type_of_grill: { type: String },
-  // size_of_tent: { type: String },
-  // type_of_av: { type: String },
-  // terms: { type: Boolean },
-  
   return (
-    <>
+    <div className="">
       <Hero />
       <Form
         name={"Personal Information"}
         data={personalInfo}
         onChange={onChange}
       />
-      <Form 
-        name={"Group Information"} 
-        data={groupInfo} 
-        onChange={onChange} 
-      />
+      <Form name={"Group Information"} data={groupInfo} onChange={onChange} />
       <Form
         name={"Reunion Information"}
         data={reunionInfo}
@@ -152,10 +237,15 @@ const Registration = () => {
       />
       <Form
         name={"Resource and Location Information"}
-        data={groupInfo}
+        data={resourceInfo}
         onChange={onChange}
       />
-    </>
+      <div className="flex w-screen p-4 items-center justify-center">
+        <button onClick={handleClick} className={`${readyToSubmit ? "bg-[#003057]" : "bg-[#E5E5E5]"} text-white p-4 w-32 rounded-full`}>
+          Submit
+        </button>
+      </div>
+    </div>
   )
 }
 
