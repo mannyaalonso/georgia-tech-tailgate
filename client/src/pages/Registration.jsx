@@ -1,3 +1,4 @@
+import ReCAPTCHA from "react-google-recaptcha"
 import Form from "../components/Form"
 import Hero from "../components/Hero"
 import { useState } from "react"
@@ -21,6 +22,7 @@ const Registration = () => {
     type_of_av: "",
     location: "",
     terms: null,
+    auth: false
   }
 
   const [formState, setFormState] = useState(initialState)
@@ -30,11 +32,17 @@ const Registration = () => {
     setFormState({ ...formState, [e.target.name]: e.target.value })
   }
 
+  const onAuthChange = () => {
+    setFormState({...formState, auth: true})
+  }
+
+  const onAuthExpired = () => {
+    setFormState({ ...formState, auth: false })
+  }
+
   const handleClick = () => {
     if (readyToSubmit) {
-
     } else {
-      
     }
   }
 
@@ -47,7 +55,8 @@ const Registration = () => {
     formState.date &&
     formState.reunion_tent &&
     formState.resources &&
-    formState.terms
+    formState.terms &&
+    formState.auth
   ) {
     readyToSubmit = true
   } else {
@@ -208,11 +217,8 @@ const Registration = () => {
     },
     {
       name: "I have completely read and agree to comply with the policies and procedures outlined in",
-      placeholder: `I have completely read and agree to comply with the policies and procedures outlined in ${(
-        <a href="https://wmt.digital/terms" target="_blank" rel="noreferrer">
-          Terms and Conditions
-        </a>
-      )}`,
+      placeholder:
+        "I have completely read and agree to comply with the policies and procedures outlined in",
       type: "radio",
       id: "terms",
       required: true,
@@ -240,8 +246,19 @@ const Registration = () => {
         data={resourceInfo}
         onChange={onChange}
       />
-      <div className="flex w-screen p-4 items-center justify-center">
-        <button onClick={handleClick} className={`${readyToSubmit ? "bg-[#003057]" : "bg-[#E5E5E5]"} text-white p-4 w-32 rounded-full`}>
+      <div className="flex w-screen p-4 items-center justify-center flex-col">
+        <ReCAPTCHA
+          className="py-3"
+          sitekey={process.env.REACT_APP_SITE_KEY}
+          onChange={onAuthChange}
+          onExpired={onAuthExpired}
+        />
+        <button
+          onClick={handleClick}
+          className={`${
+            readyToSubmit ? "bg-[#003057] hover:bg-[#B3A369]" : "bg-[#E5E5E5]"
+          } text-white p-4 w-32 rounded-full font-neusa_regular text-lg`}
+        >
           Submit
         </button>
       </div>
