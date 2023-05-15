@@ -50,12 +50,13 @@ const Registration = () => {
   const handleClick = async () => {
     if (readyToSubmit) {
       try {
-        await axios.post('http://localhost:3001/api/registrations', formState)
+        await axios.post('/api/registrations', formState)
         naviagte('/result/success')
       } catch (e) {
         naviagte("/result/failed")
       }
     } else {
+
     }
   }
 
@@ -274,6 +275,7 @@ const Registration = () => {
         />
         <button
           onClick={handleClick}
+          disabled={readyToSubmit ? false : true}
           className={`${
             readyToSubmit ? "bg-[#003057] hover:bg-[#B3A369]" : "bg-[#E5E5E5]"
           } text-white p-4 w-32 rounded-full font-neusa_regular text-lg`}
