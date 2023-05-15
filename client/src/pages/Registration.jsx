@@ -269,7 +269,7 @@ const Registration = () => {
         </p>
         <ReCAPTCHA
           className="py-3"
-          sitekey={process.env.REACT_APP_SITE_KEY}
+          sitekey={"6LdhTQomAAAAAEuVr8z22rfV2HMVz8HYRdYBxknk"}
           onChange={onAuthChange}
           onExpired={onAuthExpired}
         />
