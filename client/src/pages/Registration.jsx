@@ -1,3 +1,4 @@
+import hero1 from "../assets/images/hero1.jpg"
 import ReCAPTCHA from "react-google-recaptcha"
 import { useNavigate } from "react-router-dom"
 import { useState, useEffect } from "react"
@@ -50,9 +51,9 @@ const Registration = () => {
     if (readyToSubmit) {
       try {
         await axios.post('http://localhost:3001/api/registrations', formState)
-        naviagte('/result')
+        naviagte('/result/success')
       } catch (e) {
-        naviagte("/result")
+        naviagte("/result/failed")
       }
     } else {
     }
@@ -241,7 +242,7 @@ const Registration = () => {
 
   return (
     <div className="">
-      <Hero />
+      <Hero title={"Tailgate Registration"} image={hero1} />
       <Intro />
       <Form
         name={"Personal Information"}
@@ -259,7 +260,12 @@ const Registration = () => {
         data={resourceInfo}
         onChange={onChange}
       />
-      <div className="flex w-screen p-4 items-center justify-center flex-col">
+      <div className="flex w-screen  items-center justify-center flex-col mb-20">
+        <p className="mx-20 sm:mx-28 md:mx-44 lg:mx-52 my-8 text-center font-neusa_regular text-xl">
+          Once form has been submitted, a representative from the events
+          management office will be in touch with you to confirm your
+          registration and any resource needs.
+        </p>
         <ReCAPTCHA
           className="py-3"
           sitekey={process.env.REACT_APP_SITE_KEY}

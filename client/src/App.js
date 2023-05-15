@@ -7,9 +7,9 @@ function App() {
   return (
     <div className="App">
       <Nav />
-      <Registration />
       <Routes>
-        <Route path={"/result"} element={<Result />} />
+        <Route path={"/"} element={<Registration />} />
+        <Route path={"/result/:id"} element={<Result />} />
       </Routes>
     </div>
   )

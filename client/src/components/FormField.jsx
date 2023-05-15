@@ -18,8 +18,7 @@ const FormField = ({
       {!options ? (
         <input
           name={id}
-          className="w-full rounded-lg p-3 text-lg font-neusa_regular bg-[#E5E5E5] text-[#545454] focus:outline-[#B3A369] "
-          placeholder={placeholder}
+          className="w-full rounded-lg p-3 text-lg font-neusa_regular bg-[#E5E5E5] text-[#545454] focus:outline-[#B3A369]"
           type={type}
           required={required}
           value={value}
