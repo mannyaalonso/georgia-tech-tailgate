@@ -8,7 +8,6 @@ const RegistrationSchema = new Schema(
     email: { type: String, required: true },
     tailgate_name: { type: String },
     group_size: { type: String, required: true },
-    date: { type: String, required: true },
     group_sponsorship: { type: String },
     department: { type: String },
     reunion_tent: { type: String, required: true },

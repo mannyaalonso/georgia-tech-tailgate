@@ -18,7 +18,6 @@ const Registration = () => {
     email: "",
     tailgate_name: "",
     group_size: "",
-    date: "",
     group_sponsorship: "",
     department: "",
     reunion_tent: "",
@@ -66,7 +65,6 @@ const Registration = () => {
     formState.phone &&
     formState.email &&
     formState.group_size &&
-    formState.date &&
     formState.reunion_tent &&
     formState.resources &&
     formState.terms &&
@@ -128,14 +126,6 @@ const Registration = () => {
       id: "group_size",
       required: true,
       value: formState.group_size,
-    },
-    {
-      name: "Tailgate Date",
-      placeholder: "Tailgate Date",
-      type: "date",
-      id: "date",
-      required: true,
-      value: formState.date,
     },
     {
       name: "Group Sponsorship / Relationship to University",

@@ -20,10 +20,13 @@ const FormField = ({
           name={id}
           className="w-full rounded-lg p-3 text-lg font-neusa_regular bg-[#E5E5E5] text-[#545454] focus:outline-[#B3A369]"
           type={type}
+          min={type === "number" && 0}
           required={required}
           value={value}
           onChange={onChange}
           id={id}
+          onPaste={type === "number" && preventPasteNegative}
+          onKeyDown={type === "number" && preventMinus}
         />
       ) : (
         options.map((item) => (
@@ -42,6 +45,16 @@ const FormField = ({
       )}
     </div>
   )
+}
+
+const preventMinus = (e) => {
+  if (e.code === 'Minus') e.preventDefault()
+}
+
+const preventPasteNegative = (e) => {
+  const clipboardData = e.clipboardData || window.clipboardData
+  const pastedData = +clipboardData.getData('text')
+  if (pastedData < 0) e.preventDefault()
 }
 
 export default FormField
