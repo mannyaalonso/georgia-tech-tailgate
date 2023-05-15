@@ -269,7 +269,7 @@ const Registration = () => {
         </p>
         <ReCAPTCHA
           className="py-3"
-          sitekey={"6LdhTQomAAAAAEuVr8z22rfV2HMVz8HYRdYBxknk"}
+          sitekey={"6LcelEAkAAAAAE4muXVj6aFR8Rxqs5kHS3GJgU7F"}
           onChange={onAuthChange}
           onExpired={onAuthExpired}
         />
