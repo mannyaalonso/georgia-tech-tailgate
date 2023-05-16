@@ -11,20 +11,21 @@ const FormField = ({
   return (
     <div>
       <h2 className="text-xl font-neusa_bold text-[#B3A369]">
-        {placeholder.toUpperCase()}
+        {name.toUpperCase()}
         {required && <span className="text-[#003057]">*</span>}
       </h2>
       <label className="sr-only" htmlFor={id}></label>
       {!options ? (
         <input
-          name={id}
           className="w-full rounded-lg p-3 text-lg font-neusa_regular bg-[#E5E5E5] text-[#545454] focus:outline-[#B3A369]"
+          name={id}
           type={type}
-          min={type === "number" && 0}
           required={required}
           value={value}
           onChange={onChange}
           id={id}
+          placeholder={placeholder}
+          min={type === "number" && 0}
           onPaste={type === "number" && preventPasteNegative}
           onKeyDown={type === "number" && preventMinus}
         />

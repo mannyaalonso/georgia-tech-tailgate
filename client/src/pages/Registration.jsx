@@ -78,7 +78,7 @@ const Registration = () => {
   const personalInfo = [
     {
       name: "First Name",
-      placeholder: "First Name",
+      placeholder: "",
       type: "text",
       id: "first_name",
       required: true,
@@ -86,7 +86,7 @@ const Registration = () => {
     },
     {
       name: "Last Name",
-      placeholder: "Last Name",
+      placeholder: "",
       type: "text",
       id: "last_name",
       required: true,
@@ -94,7 +94,7 @@ const Registration = () => {
     },
     {
       name: "Phone",
-      placeholder: "Phone",
+      placeholder: "",
       type: "number",
       id: "phone",
       required: true,
@@ -102,7 +102,7 @@ const Registration = () => {
     },
     {
       name: "Email",
-      placeholder: "Email",
+      placeholder: "",
       type: "email",
       id: "email",
       required: true,
@@ -113,7 +113,7 @@ const Registration = () => {
   const groupInfo = [
     {
       name: "Tailgate Name",
-      placeholder: "Tailgate Name",
+      placeholder: "Yellow Jackets",
       type: "text",
       id: "tailgate_name",
       required: false,
@@ -121,7 +121,7 @@ const Registration = () => {
     },
     {
       name: "Group Size",
-      placeholder: "Group Size",
+      placeholder: "10",
       type: "number",
       id: "group_size",
       required: true,
@@ -146,8 +146,7 @@ const Registration = () => {
     },
     {
       name: "If You Are Registering a Department / Organization, Please Specify",
-      placeholder:
-        "If You Are Registering a Department / Organization, Please Specify",
+      placeholder: "",
       type: "text",
       id: "department",
       required: false,
@@ -167,7 +166,7 @@ const Registration = () => {
     },
     {
       name: "If Yes, Please Describe the Type of Reunion:",
-      placeholder: "If Yes, Please Describe the Type of Reunion:",
+      placeholder: "",
       type: "text-area",
       id: "reunion_tent_description",
       required: false,
@@ -197,7 +196,7 @@ const Registration = () => {
     },
     {
       name: "Size of Tent",
-      placeholder: "Size of Tent",
+      placeholder: "ft",
       type: "text",
       id: "size_of_tent",
       required: false,
@@ -205,7 +204,7 @@ const Registration = () => {
     },
     {
       name: "Type of Music / AV Equipment",
-      placeholder: "Type of Music / AV Equipment",
+      placeholder: "Speakers, Sound System, etc.",
       type: "text",
       id: "type_of_av",
       required: false,
@@ -213,7 +212,7 @@ const Registration = () => {
     },
     {
       name: "Do You Have a Preferred Location on The Quad?",
-      placeholder: "Do You Have a Preferred Location on The Quad?",
+      placeholder: "Front, Back, etc.",
       type: "text",
       id: "location",
       required: false,
