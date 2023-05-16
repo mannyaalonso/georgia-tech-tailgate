@@ -234,7 +234,7 @@ const Registration = () => {
   ]
 
   return (
-    <div className="">
+    <div className="bg-white pb-5">
       <Hero title={"Tailgate Registration"} image={hero1} />
       <Intro />
       <Form

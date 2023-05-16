@@ -40,9 +40,9 @@ const FormField = ({
           onChange={onChange}
           id={id}
           placeholder={placeholder}
-          min={type === "number" && 0}
+          min={0}
           onPaste={preventPasteNegative}
-          onKeyDown={preventMinus}
+          onKeyDown={(e) => preventMinus(e, type)}
         />
       ) : (
         options.map((item) => (
@@ -63,14 +63,24 @@ const FormField = ({
   )
 }
 
-const preventMinus = (e) => {
-  if (e.code === 'Minus') e.preventDefault()
+const preventMinus = (e, type) => {
+  if (e.code === 'Minus') e.preventDefault() 
+  if (type === 'number') {
+    onlyNumberInput(e)
+  }
 }
 
 const preventPasteNegative = (e) => {
   const clipboardData = e.clipboardData || window.clipboardData
   const pastedData = +clipboardData.getData('text')
   if (pastedData < 0) e.preventDefault()
+}
+
+const onlyNumberInput = (e) => {
+  let key = e.which || e.keyCode
+  if (key && (key <= 47 || key >= 58) && key !== 8) {
+    e.preventDefault()
+  }
 }
 
 export default FormField
