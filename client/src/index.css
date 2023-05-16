@@ -13,6 +13,11 @@
   src: url("./assets/fonts/NeusaNextPro-CompactMedium.otf");
 }
 
+@font-face {
+  font-family: "IBM";
+  src: url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@500&display=swap");
+}
+
 input[type='radio'] {
     accent-color: #003057;
 }

@@ -6,6 +6,7 @@ module.exports = {
     fontFamily: {
       neusa_regular: ["Neusa-Regular"],
       neusa_bold: ["Neusa-Bold"],
+      ibm_plex_sans: ["IBM"],
     },
   },
   plugins: [],

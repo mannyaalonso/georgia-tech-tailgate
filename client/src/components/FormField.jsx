@@ -10,14 +10,14 @@ const FormField = ({
 }) => {
   return (
     <div>
-      <h2 className="text-xl font-neusa_bold text-[#B3A369]">
+      <h2 className="text-xl font-neusa_bold text-[#a4915a]">
         {name.toUpperCase()}
-        {required && <span className="text-[#003057]">*</span>}
+        {required && <span className="text-[#172639]">*</span>}
       </h2>
       <label className="sr-only" htmlFor={id}></label>
       {!options ? (
         <input
-          className="w-full rounded-lg p-3 text-lg font-neusa_regular bg-[#E5E5E5] text-[#545454] focus:outline-[#B3A369]"
+          className="w-full rounded-lg p-3 text-lg font-neusa_regular bg-[#E5E5E5] text-[#545454] focus:outline-[#a4915a]"
           name={id}
           type={type}
           required={required}

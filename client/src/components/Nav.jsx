@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 //575
 const Nav = () => {
   return (
-    <div className="h-[75px] bg-[#B3A369] flex items-center ">
+    <div className="h-[75px] bg-[#a4915a] flex items-center ">
       <Link to={"/"}>
         <img className="h-9 ml-20" src={svg} alt="" />
       </Link>

@@ -8,11 +8,11 @@ const Result = () => {
 
   return id === "success" ? (
     <div>
-      <Hero title={"YOUR FORM WAS RECIEVED!"} image={hero2} />
+      <Hero title={"Your Form Was Received!"} image={hero2} />
     </div>
   ) : (
     <div>
-      <Hero title={"Sorry, we ran into an error"} image={hero3} />
+      <Hero title={"Sorry, we ran into an error."} image={hero3} />
     </div>
   )
 }

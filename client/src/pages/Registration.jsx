@@ -266,7 +266,7 @@ const Registration = () => {
           onClick={handleClick}
           disabled={readyToSubmit ? false : true}
           className={`${
-            readyToSubmit ? "bg-[#003057] hover:bg-[#B3A369]" : "bg-[#E5E5E5]"
+            readyToSubmit ? "bg-[#003057] hover:bg-[#a4915a]" : "bg-[#E5E5E5]"
           } text-white p-4 w-32 rounded-full font-neusa_regular text-lg`}
         >
           Submit
