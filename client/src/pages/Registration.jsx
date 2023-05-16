@@ -131,19 +131,19 @@ const Registration = () => {
       value: formState.group_size,
     },
     {
-      name: "Group Sponsorship / Relationship to University",
-      placeholder: "Group Sponsorship / Relationship to University",
+      name: "Group Sponsorship / Relationship to GT",
+      placeholder: "Group Sponsorship / Relationship to GT",
       type: "radio",
       id: "group_sponsorship",
       required: false,
       value: formState.group_sponsorship,
       options: [
-        "Official University Department",
-        "Official University Organization",
-        "Official University Student Organization",
-        "Parents of Georgia Tech Students",
-        "Georgia Tech Alumni",
-        "Visitors / Guests of Georgia Tech",
+        "Official GT Department",
+        "Official GT Organization",
+        "Official GT Student Organization",
+        "Parents of GT Students",
+        "GT Alumni",
+        "Visitors / Guests of GT",
         "None",
       ],
     },
@@ -179,9 +179,9 @@ const Registration = () => {
 
   const resourceInfo = [
     {
-      name: "Will You Bring Any of the Following: Grill, Power, Sound, A/V Equipment",
+      name: "Will You Bring Any of the Following: Grill, Power, Sound, A/V Equipment?",
       placeholder:
-        "Will You Bring Any of the Following: Grill, Power, Sound, A/V Equipment",
+        "Will You Bring Any of the Following: Grill, Power, Sound, A/V Equipment?",
       type: "radio",
       id: "resources",
       required: true,
