@@ -26,8 +26,8 @@ const FormField = ({
           id={id}
           placeholder={placeholder}
           min={type === "number" && 0}
-          onPaste={type === "number" && preventPasteNegative}
-          onKeyDown={type === "number" && preventMinus}
+          onPaste={preventPasteNegative}
+          onKeyDown={preventMinus}
         />
       ) : (
         options.map((item) => (
