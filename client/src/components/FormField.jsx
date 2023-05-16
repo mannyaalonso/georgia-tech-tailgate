@@ -12,7 +12,22 @@ const FormField = ({
     <div>
       <h2 className="text-xl font-neusa_bold text-[#a4915a]">
         {name.toUpperCase()}
-        {required && <span className="text-[#172639]">*</span>}
+        {required && (
+          <span className="text-[#172639]">
+            {id === "terms" && (
+              <a
+                className="decoration-[#a4915a] hover:underline"
+                href="https://www.gatech.edu/privacy"
+                rel="noreferrer"
+                target="_blank"
+              >
+                {" "}
+                Terms & Conditions
+              </a>
+            )}
+            *
+          </span>
+        )}
       </h2>
       <label className="sr-only" htmlFor={id}></label>
       {!options ? (

@@ -1,4 +1,5 @@
 import hero1 from "../assets/images/hero1.jpg"
+import { Oval } from "react-loader-spinner"
 import ReCAPTCHA from "react-google-recaptcha"
 import { useNavigate } from "react-router-dom"
 import Intro from "../components/Intro"
@@ -31,6 +32,7 @@ const Registration = () => {
     auth: false
   }
 
+  const [isLoading, setIsLoading] = useState(false)
   const [formState, setFormState] = useState(initialState)
   let readyToSubmit = false
 
@@ -48,15 +50,16 @@ const Registration = () => {
 
   const handleClick = async () => {
     if (readyToSubmit) {
+      setIsLoading(true)
       try {
         await axios.post('/api/registrations', formState)
+        setIsLoading(false)
         naviagte('/result/success')
       } catch (e) {
+        setIsLoading(false)
         naviagte("/result/failed")
       }
-    } else {
-
-    }
+    } 
   }
 
   if (
@@ -267,10 +270,23 @@ const Registration = () => {
           disabled={readyToSubmit ? false : true}
           className={`${
             readyToSubmit ? "bg-[#003057] hover:bg-[#a4915a]" : "bg-[#E5E5E5]"
-          } text-white p-4 w-32 rounded-full font-neusa_regular text-lg`}
+          } text-white p-4 w-32 rounded-full font-neusa_regular text-lg mb-4`}
         >
           Submit
         </button>
+        {isLoading &&
+        <Oval
+          height={40}
+          width={40}
+          color="#a4915a"
+          wrapperStyle={{}}
+          wrapperClass=""
+          visible={true}
+          ariaLabel="oval-loading"
+          secondaryColor="#a4915a"
+          strokeWidth={2}
+          strokeWidthSecondary={2}
+        />}
       </div>
     </div>
   )
