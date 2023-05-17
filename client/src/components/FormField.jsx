@@ -50,7 +50,7 @@ const FormField = ({
             <input
               name={id}
               className="ml-2"
-              type="radio"
+              type={type}
               value={item}
               onChange={onChange}
               id={item}
