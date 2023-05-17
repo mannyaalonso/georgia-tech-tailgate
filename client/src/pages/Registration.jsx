@@ -1,7 +1,7 @@
+import { useNavigate } from "react-router-dom"
+import ReCAPTCHA from "react-google-recaptcha"
 import hero1 from "../assets/images/hero1.jpg"
 import { Oval } from "react-loader-spinner"
-import ReCAPTCHA from "react-google-recaptcha"
-import { useNavigate } from "react-router-dom"
 import Intro from "../components/Intro"
 import Form from "../components/Form"
 import Hero from "../components/Hero"
@@ -9,7 +9,6 @@ import { useState } from "react"
 import axios from "axios"
 
 const Registration = () => {
-
   const naviagte = useNavigate()
 
   const initialState = {
@@ -29,7 +28,7 @@ const Registration = () => {
     type_of_av: "",
     location: "",
     terms: "",
-    auth: false
+    auth: false,
   }
 
   const [isLoading, setIsLoading] = useState(false)
@@ -41,7 +40,7 @@ const Registration = () => {
   }
 
   const onAuthChange = () => {
-    setFormState({...formState, auth: true})
+    setFormState({ ...formState, auth: true })
   }
 
   const onAuthExpired = () => {
@@ -52,14 +51,14 @@ const Registration = () => {
     if (readyToSubmit) {
       setIsLoading(true)
       try {
-        await axios.post('/api/registrations', formState)
+        await axios.post("/api/registrations", formState)
         setIsLoading(false)
-        naviagte('/result/success')
+        naviagte("/result/success")
       } catch (e) {
         setIsLoading(false)
         naviagte("/result/failed")
       }
-    } 
+    }
   }
 
   if (
@@ -274,19 +273,20 @@ const Registration = () => {
         >
           Submit
         </button>
-        {isLoading &&
-        <Oval
-          height={40}
-          width={40}
-          color="#a4915a"
-          wrapperStyle={{}}
-          wrapperClass=""
-          visible={true}
-          ariaLabel="oval-loading"
-          secondaryColor="#a4915a"
-          strokeWidth={2}
-          strokeWidthSecondary={2}
-        />}
+        {isLoading && (
+          <Oval
+            height={40}
+            width={40}
+            color="#a4915a"
+            wrapperStyle={{}}
+            wrapperClass=""
+            visible={true}
+            ariaLabel="oval-loading"
+            secondaryColor="#a4915a"
+            strokeWidth={2}
+            strokeWidthSecondary={2}
+          />
+        )}
       </div>
     </div>
   )
